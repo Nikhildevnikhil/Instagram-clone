@@ -1,14 +1,15 @@
-import useShowToast from "./useShowToast";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import useShowToast from "./useShowToast";
 import { auth, firestore } from "../firebase/Firebase";
 import { doc, getDoc } from "firebase/firestore";
 import useAuthStore from "../store/authStore";
 
 const useLogin = () => {
   const showToast = useShowToast();
-  const [signInWithEmailAndPassword, loading, error] =
+  const [signInWithEmailAndPassword, , loading, error] =
     useSignInWithEmailAndPassword(auth);
   const loginUser = useAuthStore((state) => state.login);
+
   const login = async (inputs) => {
     if (!inputs.email || !inputs.password) {
       return showToast("Error", "Please fill all the fields", "error");
@@ -18,6 +19,7 @@ const useLogin = () => {
         inputs.email,
         inputs.password
       );
+
       if (userCred) {
         const docRef = doc(firestore, "users", userCred.user.uid);
         const docSnap = await getDoc(docRef);
@@ -28,6 +30,7 @@ const useLogin = () => {
       showToast("Error", error.message, "error");
     }
   };
+
   return { loading, error, login };
 };
 
