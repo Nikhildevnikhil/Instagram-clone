@@ -2,7 +2,6 @@
 
 This project is an Instagram clone built using React.js. It aims to replicate some of the core features and functionalities of the popular social media platform Instagram, providing users with a familiar interface for browsing photos, liking, commenting, and more.
 
-![Instagram Clone Screenshot](/screenshots/insta.png)
 
 ## Features
 
