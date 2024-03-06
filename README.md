@@ -62,7 +62,7 @@ npm install
 npm start
 ```
 
-6. Open your web browser and navigate to `http://localhost:3000` to view the Instagram clone.
+6. Open your web browser and navigate to `http://localhost:5173` to view the Instagram clone.
 
 ## Contributing
 
